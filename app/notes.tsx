@@ -3,17 +3,7 @@ import { SafeAreaView, Text, View } from "react-native";
 import FooterNavigation from "../components/FooterNavigation";
 import { dashboardStyles } from "../styles/dashboardStyles";
 
-export default function DashboardScreen() {
-  // today's date
-  const today = new Date();
-
-  const formattedDate = today.toLocaleDateString("en-US", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-
+export default function NotesScreen() {
   return (
     <SafeAreaView style={dashboardStyles.safeArea}>
       <View style={dashboardStyles.header}>
@@ -21,12 +11,14 @@ export default function DashboardScreen() {
       </View>
 
       <View style={dashboardStyles.container}>
-        <Text style={dashboardStyles.welcome}>Welcome back, User!</Text>
-        <Text style={dashboardStyles.todayText}>{formattedDate}</Text>
+        <Text style={dashboardStyles.welcome}>Notes</Text>
+        <Text style={dashboardStyles.todayText}>
+          Your academic notes and resources
+        </Text>
 
         <View style={dashboardStyles.content}>
-          {/* Your dashboard content will go here */}
-          <Text>Dashboard Content</Text>
+          {/* Your notes content will go here */}
+          <Text>Notes Content</Text>
         </View>
       </View>
 
