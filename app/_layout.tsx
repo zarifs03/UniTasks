@@ -7,6 +7,18 @@ export default function Layout() {
         name="index"
         options={{ headerShown: false }}
       />
+      <Stack.Screen 
+        name="tasks" 
+        options={{ headerShown: false}}
+      />
+      <Stack.Screen
+        name="notes"
+        options={{ headerShown: false}}
+      />
+      <Stack.Screen
+        name="profile"
+        options={{ headerShown: false}}
+      />
     </Stack>
   );
 }

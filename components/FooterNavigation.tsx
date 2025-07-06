@@ -18,10 +18,10 @@ const FooterNavigation: React.FC = () => {
       route: "/notes",
     },
     {
-      id: "user",
-      label: "User",
+      id: "profile",
+      label: "Profile",
       icon: "people" as const,
-      route: "/users",
+      route: "/profile",
     },
   ];
 
