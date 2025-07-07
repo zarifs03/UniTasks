@@ -125,16 +125,8 @@ export const dashboardStyles = StyleSheet.create({
     borderRadius: 12,
     padding: 16,
     width: '48%',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
-    borderLeftWidth: 4,
-    borderLeftColor: '#E5E7EB',
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
   },
   statsNumber: {
     fontSize: 24,

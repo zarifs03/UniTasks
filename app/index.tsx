@@ -113,20 +113,20 @@ export default function DashboardScreen() {
           {/* Dashboard Statistics */}
           <View style={dashboardStyles.statsContainer}>
             <View style={dashboardStyles.statsGrid}>
-              <View style={[dashboardStyles.statsCard, { borderLeftColor: '#4A00E0' }]}>
-                <Text style={[dashboardStyles.statsNumber, { color: '#4A00E0' }]}>{getActiveProjects()}</Text>
+              <View style={dashboardStyles.statsCard}>
+                <Text style={dashboardStyles.statsNumber}>{getActiveProjects()}</Text>
                 <Text style={dashboardStyles.statsLabel}>Active Projects</Text>
               </View>
-              <View style={[dashboardStyles.statsCard, { borderLeftColor: '#10B981' }]}>
-                <Text style={[dashboardStyles.statsNumber, { color: '#10B981' }]}>{getTasksDueToday()}</Text>
+              <View style={dashboardStyles.statsCard}>
+                <Text style={dashboardStyles.statsNumber}>{getTasksDueToday()}</Text>
                 <Text style={dashboardStyles.statsLabel}>Tasks Due Today</Text>
               </View>
-              <View style={[dashboardStyles.statsCard, { borderLeftColor: '#F59E0B' }]}>
-                <Text style={[dashboardStyles.statsNumber, { color: '#F59E0B' }]}>{getUpcomingDeadlines()}</Text>
+              <View style={dashboardStyles.statsCard}>
+                <Text style={dashboardStyles.statsNumber}>{getUpcomingDeadlines()}</Text>
                 <Text style={dashboardStyles.statsLabel}>Upcoming Deadlines</Text>
               </View>
-              <View style={[dashboardStyles.statsCard, { borderLeftColor: '#EF4444' }]}>
-                <Text style={[dashboardStyles.statsNumber, { color: '#EF4444' }]}>{getTeamMembers()}</Text>
+              <View style={dashboardStyles.statsCard}>
+                <Text style={dashboardStyles.statsNumber}>{getTeamMembers()}</Text>
                 <Text style={dashboardStyles.statsLabel}>Team Members</Text>
               </View>
             </View>
