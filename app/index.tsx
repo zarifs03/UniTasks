@@ -1,6 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import React, { useState } from "react";
-import { SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Alert, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import FooterNavigation from "../components/FooterNavigation";
 import ProjectCard from "../components/ProjectCard";
 import ProjectModal from "../components/ProjectModal";
@@ -9,7 +9,7 @@ import { dashboardStyles } from "../styles/dashboardStyles";
 import { Project, ProjectFormData } from "../types/project";
 
 export default function DashboardScreen() {
-  const { projects, addProject, updateProject } = useProjects();
+  const { projects, addProject, updateProject, deleteProject } = useProjects();
   const [modalVisible, setModalVisible] = useState(false);
   const [editingProject, setEditingProject] = useState<Project | undefined>(undefined);
   const [modalMode, setModalMode] = useState<'create' | 'edit'>('create');
@@ -34,6 +34,24 @@ export default function DashboardScreen() {
     setEditingProject(project);
     setModalMode('edit');
     setModalVisible(true);
+  };
+
+  const handleDeleteProject = (project: Project) => {
+    Alert.alert(
+      "Delete Project",
+      `Are you sure you want to delete "${project.title}"? This action cannot be undone.`,
+      [
+        {
+          text: "Cancel",
+          style: "cancel",
+        },
+        {
+          text: "Delete",
+          style: "destructive",
+          onPress: () => deleteProject(project.id),
+        },
+      ]
+    );
   };
 
   const handleSaveProject = (projectData: ProjectFormData) => {
@@ -101,6 +119,7 @@ export default function DashboardScreen() {
                   key={project.id}
                   project={project}
                   onEdit={handleEditProject}
+                  onDelete={handleDeleteProject}
                 />
               ))}
               <TouchableOpacity

@@ -6,9 +6,10 @@ import { Project } from '../types/project';
 interface ProjectCardProps {
   project: Project;
   onEdit: (project: Project) => void;
+  onDelete: (project: Project) => void;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project, onEdit }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, onEdit, onDelete }) => {
   const formatDate = (date: Date) => {
     return date.toLocaleDateString('en-US', {
       month: 'short',
@@ -34,13 +35,22 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onEdit }) => {
         <Text style={styles.title} numberOfLines={2}>
           {project.title}
         </Text>
-        <TouchableOpacity
-          style={styles.editButton}
-          onPress={() => onEdit(project)}
-          hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
-        >
-          <Ionicons name="pencil" size={18} color="#6B7280" />
-        </TouchableOpacity>
+        <View style={styles.actionButtons}>
+          <TouchableOpacity
+            style={styles.editButton}
+            onPress={() => onEdit(project)}
+            hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+          >
+            <Ionicons name="pencil" size={18} color="#6B7280" />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.deleteButton}
+            onPress={() => onDelete(project)}
+            hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+          >
+            <Ionicons name="trash-outline" size={18} color="#6B7280" />
+          </TouchableOpacity>
+        </View>
       </View>
       
       <View style={styles.dueDateContainer}>
@@ -105,6 +115,14 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   editButton: {
+    padding: 4,
+  },
+  actionButtons: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  deleteButton: {
     padding: 4,
   },
   dueDateContainer: {
