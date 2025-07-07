@@ -24,6 +24,36 @@ export default function DashboardScreen() {
     day: "numeric",
   });
 
+  // Calculate dashboard statistics
+  const getActiveProjects = () => {
+    return projects.filter(project => {
+      const dueDate = new Date(project.dueDate);
+      return dueDate >= today;
+    }).length;
+  };
+
+  const getTasksDueToday = () => {
+    return projects.filter(project => {
+      const dueDate = new Date(project.dueDate);
+      return dueDate.toDateString() === today.toDateString();
+    }).length;
+  };
+
+  const getUpcomingDeadlines = () => {
+    const nextWeek = new Date(today);
+    nextWeek.setDate(today.getDate() + 7);
+    
+    return projects.filter(project => {
+      const dueDate = new Date(project.dueDate);
+      return dueDate > today && dueDate <= nextWeek;
+    }).length;
+  };
+
+  const getTeamMembers = () => {
+    // For now, we'll use a static number. In a real app, this would come from a team context
+    return 4;
+  };
+
   const handleCreateProject = () => {
     setEditingProject(undefined);
     setModalMode('create');
@@ -80,6 +110,28 @@ export default function DashboardScreen() {
         <Text style={dashboardStyles.todayText}>{formattedDate}</Text>
 
         <View style={dashboardStyles.content}>
+          {/* Dashboard Statistics */}
+          <View style={dashboardStyles.statsContainer}>
+            <View style={dashboardStyles.statsGrid}>
+              <View style={[dashboardStyles.statsCard, { borderLeftColor: '#4A00E0' }]}>
+                <Text style={[dashboardStyles.statsNumber, { color: '#4A00E0' }]}>{getActiveProjects()}</Text>
+                <Text style={dashboardStyles.statsLabel}>Active Projects</Text>
+              </View>
+              <View style={[dashboardStyles.statsCard, { borderLeftColor: '#10B981' }]}>
+                <Text style={[dashboardStyles.statsNumber, { color: '#10B981' }]}>{getTasksDueToday()}</Text>
+                <Text style={dashboardStyles.statsLabel}>Tasks Due Today</Text>
+              </View>
+              <View style={[dashboardStyles.statsCard, { borderLeftColor: '#F59E0B' }]}>
+                <Text style={[dashboardStyles.statsNumber, { color: '#F59E0B' }]}>{getUpcomingDeadlines()}</Text>
+                <Text style={dashboardStyles.statsLabel}>Upcoming Deadlines</Text>
+              </View>
+              <View style={[dashboardStyles.statsCard, { borderLeftColor: '#EF4444' }]}>
+                <Text style={[dashboardStyles.statsNumber, { color: '#EF4444' }]}>{getTeamMembers()}</Text>
+                <Text style={dashboardStyles.statsLabel}>Team Members</Text>
+              </View>
+            </View>
+          </View>
+
           <View style={dashboardStyles.projectsHeader}>
             <Text style={dashboardStyles.projectsTitle}>Your Projects</Text>
             <Text style={dashboardStyles.projectsCount}>

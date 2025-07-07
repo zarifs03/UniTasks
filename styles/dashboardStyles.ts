@@ -111,4 +111,40 @@ export const dashboardStyles = StyleSheet.create({
     lineHeight: 20,
     marginBottom: 32,
   },
+  statsContainer: {
+    marginBottom: 24,
+  },
+  statsGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    gap: 12,
+  },
+  statsCard: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 12,
+    padding: 16,
+    width: '48%',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+    borderLeftWidth: 4,
+    borderLeftColor: '#E5E7EB',
+  },
+  statsNumber: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#1F2937',
+    marginBottom: 4,
+  },
+  statsLabel: {
+    fontSize: 12,
+    color: '#6B7280',
+    lineHeight: 16,
+  },
 });
