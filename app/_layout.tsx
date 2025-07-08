@@ -1,15 +1,19 @@
 import { Stack } from 'expo-router';
+import * as NavigationBar from 'expo-navigation-bar';
 import { StatusBar } from 'expo-status-bar';
-import * as SystemUI from 'expo-system-ui';
 import { useEffect } from 'react';
-import { Platform } from 'react-native';
+import { Platform, StatusBar as RNStatusBar } from 'react-native';
 import { ProjectProvider } from '../context/ProjectContext';
 
 export default function Layout() {
   useEffect(() => {
     // Set navigation bar style for Android
     if (Platform.OS === 'android') {
-      SystemUI.setBackgroundColorAsync('#FFFFFF');
+      // Set navigation bar to use dark content (dark buttons) using expo-navigation-bar
+      NavigationBar.setBackgroundColorAsync('#FFFFFF');
+      NavigationBar.setButtonStyleAsync('dark');
+      
+      console.log('Navigation bar set to white background with dark buttons');
     }
   }, []);
 

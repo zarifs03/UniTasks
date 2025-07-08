@@ -112,7 +112,7 @@ export default function DashboardScreen() {
         <ScrollView 
           style={dashboardStyles.content}
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{ paddingBottom: Platform.OS === 'android' ? 110 : 100 }}
+          contentContainerStyle={{ paddingBottom: Platform.OS === 'android' ? 105 : 90 }}
         >
           <Text style={dashboardStyles.welcome}>Welcome back, User!</Text>
           <Text style={dashboardStyles.todayText}>{formattedDate}</Text>

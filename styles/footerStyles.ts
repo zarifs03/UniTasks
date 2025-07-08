@@ -11,7 +11,7 @@ container: {
   borderTopWidth: 1,
   borderTopColor: '#E5E7EB',
   paddingTop: 8,
-  paddingBottom: Platform.OS === 'android' ? 28 : 18,
+  paddingBottom: Platform.OS === 'android' ? 44 : 18,
   paddingHorizontal: 16,
   justifyContent: 'space-around',
   shadowColor: '#000',
