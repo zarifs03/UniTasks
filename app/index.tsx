@@ -141,9 +141,6 @@ export default function DashboardScreen() {
 
           <View style={dashboardStyles.projectsHeader}>
             <Text style={dashboardStyles.projectsTitle}>Your Projects</Text>
-            <Text style={dashboardStyles.projectsCount}>
-              {projects.length} project{projects.length !== 1 ? 's' : ''}
-            </Text>
           </View>
 
           {projects.length === 0 ? (

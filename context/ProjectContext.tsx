@@ -35,10 +35,10 @@ export const ProjectProvider: React.FC<ProjectProviderProps> = ({ children }) =>
     },
     {
       id: '2',
-      title: 'Database Design',
-      dueDate: new Date('2025-07-20'),
-      createdAt: new Date('2025-07-02'),
-      updatedAt: new Date('2025-07-02'),
+      title: 'UniTasks',
+      dueDate: new Date('2025-07-31'),
+      createdAt: new Date('2025-07-08'),
+      updatedAt: new Date('2025-07-08'),
     },
   ]);
 
