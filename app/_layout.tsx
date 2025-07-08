@@ -1,8 +1,8 @@
-import { Stack } from 'expo-router';
 import * as NavigationBar from 'expo-navigation-bar';
+import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
-import { Platform, StatusBar as RNStatusBar } from 'react-native';
+import { Platform } from 'react-native';
 import { ProjectProvider } from '../context/ProjectContext';
 
 export default function Layout() {
