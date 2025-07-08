@@ -1,6 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import React, { useState } from "react";
-import { Alert, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Alert, Platform, SafeAreaView, ScrollView, StatusBar, Text, TouchableOpacity, View } from "react-native";
 import FooterNavigation from "../components/FooterNavigation";
 import ProjectCard from "../components/ProjectCard";
 import ProjectModal from "../components/ProjectModal";
@@ -101,6 +101,9 @@ export default function DashboardScreen() {
 
   return (
     <SafeAreaView style={dashboardStyles.safeArea}>
+      <StatusBar 
+        barStyle="dark-content" 
+      />
       <View style={dashboardStyles.header}>
         <Text style={dashboardStyles.logo}>UniTasks</Text>
       </View>
@@ -109,7 +112,7 @@ export default function DashboardScreen() {
         <ScrollView 
           style={dashboardStyles.content}
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{ paddingBottom: 100 }}
+          contentContainerStyle={{ paddingBottom: Platform.OS === 'android' ? 110 : 100 }}
         >
           <Text style={dashboardStyles.welcome}>Welcome back, User!</Text>
           <Text style={dashboardStyles.todayText}>{formattedDate}</Text>

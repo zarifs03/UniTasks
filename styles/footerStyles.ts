@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 
 export const footerStyles = StyleSheet.create({
 container: {
@@ -11,7 +11,7 @@ container: {
   borderTopWidth: 1,
   borderTopColor: '#E5E7EB',
   paddingTop: 8,
-  paddingBottom: 18,
+  paddingBottom: Platform.OS === 'android' ? 28 : 18,
   paddingHorizontal: 16,
   justifyContent: 'space-around',
   shadowColor: '#000',

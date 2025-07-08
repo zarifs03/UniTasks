@@ -5,6 +5,7 @@ import {
   Alert,
   Modal,
   Platform,
+  StatusBar,
   StyleSheet,
   Text,
   TextInput,
@@ -78,6 +79,9 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
       presentationStyle="pageSheet"
       onRequestClose={handleCancel}
     >
+      <StatusBar 
+        barStyle="dark-content" 
+      />
       <View style={styles.container}>
         <View style={styles.header}>
           <TouchableOpacity onPress={handleCancel}>
