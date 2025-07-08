@@ -25,7 +25,6 @@ export const dashboardStyles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 16,
-    paddingTop: 14,
     backgroundColor: '#FAFAFA',
   },
   logo: {
@@ -37,15 +36,16 @@ export const dashboardStyles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 6,
+    marginTop: 14,
     color: '#1F2937',
   },
   todayText: {
     fontSize: 12,
     color: '#6B7280',
+    marginBottom: 20,
   },
   content: {
     flex: 1,
-    marginTop: 20,
   },
   createButton: {
     backgroundColor: '#4A00E0',
@@ -85,14 +85,11 @@ export const dashboardStyles = StyleSheet.create({
     fontSize: 14,
     color: '#6B7280',
   },
-  projectsList: {
-    flex: 1,
-  },
   emptyState: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: 40,
+    paddingVertical: 60,
+    minHeight: 300,
   },
   emptyStateIcon: {
     marginBottom: 16,

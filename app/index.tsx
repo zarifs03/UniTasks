@@ -106,10 +106,14 @@ export default function DashboardScreen() {
       </View>
 
       <View style={dashboardStyles.container}>
-        <Text style={dashboardStyles.welcome}>Welcome back, User!</Text>
-        <Text style={dashboardStyles.todayText}>{formattedDate}</Text>
+        <ScrollView 
+          style={dashboardStyles.content}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ paddingBottom: 100 }}
+        >
+          <Text style={dashboardStyles.welcome}>Welcome back, User!</Text>
+          <Text style={dashboardStyles.todayText}>{formattedDate}</Text>
 
-        <View style={dashboardStyles.content}>
           {/* Dashboard Statistics */}
           <View style={dashboardStyles.statsContainer}>
             <View style={dashboardStyles.statsGrid}>
@@ -161,11 +165,7 @@ export default function DashboardScreen() {
               </TouchableOpacity>
             </View>
           ) : (
-            <ScrollView 
-              style={dashboardStyles.projectsList}
-              showsVerticalScrollIndicator={false}
-              contentContainerStyle={{ paddingBottom: 20 }}
-            >
+            <>
               {projects.map((project) => (
                 <ProjectCard
                   key={project.id}
@@ -182,9 +182,9 @@ export default function DashboardScreen() {
                 <Ionicons name="add" size={24} color="#FFFFFF" />
                 <Text style={dashboardStyles.createButtonText}>Create New Project</Text>
               </TouchableOpacity>
-            </ScrollView>
+            </>
           )}
-        </View>
+        </ScrollView>
       </View>
 
       <FooterNavigation />
