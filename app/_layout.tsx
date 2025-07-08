@@ -10,10 +10,9 @@ export default function Layout() {
     // Set navigation bar style for Android
     if (Platform.OS === 'android') {
       // Set navigation bar to use dark content (dark buttons) using expo-navigation-bar
-      NavigationBar.setBackgroundColorAsync('#FFFFFF');
       NavigationBar.setButtonStyleAsync('dark');
       
-      console.log('Navigation bar set to white background with dark buttons');
+      console.log('Navigation bar set to use dark buttons');
     }
   }, []);
 
